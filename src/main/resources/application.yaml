@@ -23,6 +23,25 @@ quarkus:
     database:
       generation: none
 
+"%dev":
+  quarkus:
+    log:
+      level: INFO
+      category:
+        "dev.rhenergy":
+          level: DEBUG
+    datasource:
+      username: test
+      password: password
+      jdbc:
+        url: jdbc:postgresql://localhost:5432/customer_db
+    hibernate-orm:
+      log:
+        sql: true
+    flyway:
+      migrate-at-start: true
+      locations: db/migration,db/testdata
+
 "%test":
   quarkus:
     log:

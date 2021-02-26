@@ -1,0 +1,11 @@
+version: '3.8'
+services:
+  postgres:
+    image: postgres
+    restart: always
+    ports:
+      - "5432:5432"
+    environment:
+      POSTGRES_DB: customer_db
+      POSTGRES_USER: test
+      POSTGRES_PASSWORD: password
