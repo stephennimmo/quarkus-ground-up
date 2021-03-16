@@ -36,7 +36,7 @@ public class CustomerResourceTest {
                 .then()
                 .statusCode(200)
                 .extract().as(Customer.class);
-        assertThat(saved.equals(got));
+        assertThat(saved).isEqualTo(got);
     }
 
     @Test
@@ -50,7 +50,7 @@ public class CustomerResourceTest {
                 .then()
                 .statusCode(201)
                 .extract().as(Customer.class);
-        assertThat(saved.getCustomerId() != null);
+        assertThat(saved.getCustomerId()).isNotNull();
     }
 
     @Test
@@ -86,7 +86,7 @@ public class CustomerResourceTest {
                 .then()
                 .statusCode(200)
                 .extract().as(Customer.class);
-        assertThat(updated.getFirstName().equals("Updated"));
+        assertThat(updated.getFirstName()).isEqualTo("Updated");
     }
 
     @Test
