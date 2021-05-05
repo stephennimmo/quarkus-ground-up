@@ -1,7 +1,7 @@
-package dev.rhenergy.config.customer;
+package dev.rhenergy.customer;
 
 
-import dev.rhenergy.config.exception.ServiceException;
+import dev.rhenergy.exception.ServiceException;
 import org.slf4j.Logger;
 
 import javax.enterprise.context.ApplicationScoped;

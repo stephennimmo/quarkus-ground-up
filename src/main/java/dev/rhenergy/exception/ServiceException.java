@@ -1,4 +1,4 @@
-package dev.rhenergy.config.exception;
+package dev.rhenergy.exception;
 
 public class ServiceException extends RuntimeException {
 

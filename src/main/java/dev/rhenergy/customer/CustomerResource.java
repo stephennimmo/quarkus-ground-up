@@ -1,4 +1,4 @@
-package dev.rhenergy.config.customer;
+package dev.rhenergy.customer;
 
 import org.eclipse.microprofile.openapi.annotations.enums.SchemaType;
 import org.eclipse.microprofile.openapi.annotations.media.Content;

@@ -1,26 +1,38 @@
-package dev.rhenergy.config.customer;
+package dev.rhenergy.customer;
 
+import javax.persistence.*;
 import javax.validation.constraints.Email;
 import javax.validation.constraints.NotEmpty;
 import java.util.Objects;
 
-public class Customer {
+@Entity(name = "Customer")
+@Table(name = "customer")
+public class CustomerEntity {
 
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @Column(name = "customer_id")
     private Integer customerId;
 
+    @Column(name = "first_name")
     @NotEmpty
     private String firstName;
 
+    @Column(name = "middle_name")
     private String middleName;
 
+    @Column(name = "last_name")
     @NotEmpty
     private String lastName;
 
+    @Column(name = "suffix")
     private String suffix;
 
+    @Column(name = "email")
     @Email
     private String email;
 
+    @Column(name = "phone")
     private String phone;
 
     public Integer getCustomerId() {
@@ -83,8 +95,8 @@ public class Customer {
     public boolean equals(Object o) {
         if (this == o) return true;
         if (o == null || getClass() != o.getClass()) return false;
-        Customer customer = (Customer) o;
-        return Objects.equals(customerId, customer.customerId) && Objects.equals(firstName, customer.firstName) && Objects.equals(middleName, customer.middleName) && Objects.equals(lastName, customer.lastName) && Objects.equals(suffix, customer.suffix) && Objects.equals(email, customer.email) && Objects.equals(phone, customer.phone);
+        CustomerEntity that = (CustomerEntity) o;
+        return Objects.equals(customerId, that.customerId) && Objects.equals(firstName, that.firstName) && Objects.equals(middleName, that.middleName) && Objects.equals(lastName, that.lastName) && Objects.equals(suffix, that.suffix) && Objects.equals(email, that.email) && Objects.equals(phone, that.phone);
     }
 
     @Override
@@ -94,7 +106,7 @@ public class Customer {
 
     @Override
     public String toString() {
-        return "Customer{" +
+        return "CustomerEntity{" +
                 "customerId=" + customerId +
                 ", firstName='" + firstName + '\'' +
                 ", middleName='" + middleName + '\'' +

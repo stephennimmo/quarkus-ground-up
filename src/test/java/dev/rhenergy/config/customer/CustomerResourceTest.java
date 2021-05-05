@@ -1,5 +1,6 @@
 package dev.rhenergy.config.customer;
 
+import dev.rhenergy.customer.Customer;
 import io.quarkus.test.junit.QuarkusTest;
 import io.restassured.http.ContentType;
 import org.apache.commons.lang3.RandomStringUtils;
