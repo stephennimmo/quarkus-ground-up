@@ -19,6 +19,8 @@ quarkus:
     enabled: false
   datasource:
     db-kind: postgresql
+    devservices:
+      image-name: postgres:13
   hibernate-orm:
     database:
       generation: none
@@ -30,11 +32,6 @@ quarkus:
       category:
         "dev.rhenergy":
           level: DEBUG
-    datasource:
-      username: test
-      password: password
-      jdbc:
-        url: jdbc:postgresql://localhost:5432/customer_db
     hibernate-orm:
       log:
         sql: true
@@ -49,12 +46,7 @@ quarkus:
       category:
         "dev.rhenergy":
           level: DEBUG
-    datasource:
-      jdbc:
-        url: jdbc:tc:postgresql:latest:///customer_db
-        driver: org.testcontainers.jdbc.ContainerDatabaseDriver
     hibernate-orm:
-      dialect: org.hibernate.dialect.PostgreSQL10Dialect
       log:
         sql: true
     flyway:

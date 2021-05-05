@@ -1,6 +1,8 @@
-package dev.rhenergy.customer;
+package dev.rhenergy.config.customer;
 
-import lombok.AllArgsConstructor;
+
+import dev.rhenergy.config.exception.ServiceException;
+import org.slf4j.Logger;
 
 import javax.enterprise.context.ApplicationScoped;
 import javax.transaction.Transactional;
@@ -9,11 +11,17 @@ import java.util.Optional;
 import java.util.stream.Collectors;
 
 @ApplicationScoped
-@AllArgsConstructor
 public class CustomerService {
 
-    private CustomerRepository customerRepository;
-    private CustomerMapper customerMapper;
+    private final CustomerRepository customerRepository;
+    private final CustomerMapper customerMapper;
+    private final Logger logger;
+
+    public CustomerService(CustomerRepository customerRepository, CustomerMapper customerMapper, Logger logger) {
+        this.customerRepository = customerRepository;
+        this.customerMapper = customerMapper;
+        this.logger = logger;
+    }
 
     public List<Customer> findAll(){
         return customerRepository.findAll().stream()

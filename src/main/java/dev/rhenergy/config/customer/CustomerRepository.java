@@ -1,4 +1,4 @@
-package dev.rhenergy.customer;
+package dev.rhenergy.config.customer;
 
 import io.quarkus.hibernate.orm.panache.PanacheRepositoryBase;
 

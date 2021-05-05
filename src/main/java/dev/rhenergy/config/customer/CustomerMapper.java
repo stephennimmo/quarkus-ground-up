@@ -1,4 +1,4 @@
-package dev.rhenergy.customer;
+package dev.rhenergy.config.customer;
 
 import org.mapstruct.Mapper;
 

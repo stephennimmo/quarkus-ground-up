@@ -1,12 +1,11 @@
-package dev.rhenergy.customer;
+package dev.rhenergy.config.customer;
 
-import lombok.AllArgsConstructor;
-import lombok.extern.slf4j.Slf4j;
 import org.eclipse.microprofile.openapi.annotations.enums.SchemaType;
 import org.eclipse.microprofile.openapi.annotations.media.Content;
 import org.eclipse.microprofile.openapi.annotations.media.Schema;
 import org.eclipse.microprofile.openapi.annotations.responses.APIResponse;
 import org.eclipse.microprofile.openapi.annotations.responses.APIResponses;
+import org.slf4j.Logger;
 
 import javax.validation.Valid;
 import javax.ws.rs.*;
@@ -17,11 +16,15 @@ import java.util.Optional;
 @Path("/api/customers")
 @Produces(MediaType.APPLICATION_JSON)
 @Consumes(MediaType.APPLICATION_JSON)
-@Slf4j
-@AllArgsConstructor
 public class CustomerResource {
 
-    private CustomerService customerService;
+    private final CustomerService customerService;
+    private final Logger logger;
+
+    public CustomerResource(CustomerService customerService, Logger logger) {
+        this.customerService = customerService;
+        this.logger = logger;
+    }
 
     @GET
     @APIResponses(
