@@ -24,7 +24,10 @@ quarkus:
   hibernate-orm:
     database:
       generation: none
-
+  micrometer:
+    binder:
+      http-server:
+        ignore-patterns: "/q"
 "%dev":
   quarkus:
     log:
