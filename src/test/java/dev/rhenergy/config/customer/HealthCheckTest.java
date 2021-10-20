@@ -12,7 +12,7 @@ public class HealthCheckTest {
     @Test
     public void getHealth() {
         given()
-                .when().get("/health")
+                .when().get("/q/health")
                 .then()
                 .statusCode(200)
                 .body("status", Matchers.equalTo("UP"));
@@ -21,7 +21,7 @@ public class HealthCheckTest {
     @Test
     public void getDatasourceHealth() {
         given()
-                .when().get("/health/ready")
+                .when().get("/q/health/ready")
                 .then()
                 .statusCode(200)
                 .body("status", Matchers.equalTo("UP"));
