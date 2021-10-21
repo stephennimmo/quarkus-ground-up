@@ -33,13 +33,19 @@ The application is now runnable using `java -jar target/quarkus-app/quarkus-run.
 
 You can create a native executable using: 
 ```shell script
-./mvnw package -Pnative
+./mvnw clean package -Pnative 
+```
+
+```
+./target/customer-api-1.0.0-SNAPSHOT-runner 
 ```
 
 Or, if you don't have GraalVM installed, you can run the native executable build in a container using: 
 ```shell script
-./mvnw package -Pnative -Dquarkus.native.container-build=true
+./mvnw clean package -Pnative -Dquarkus.native.container-build=true -Dquarkus.native.native-image-xmx=3g -Dquarkus.native.builder-image=quay.io/quarkus/ubi-quarkus-native-image:21.3.0-java17
 ```
+
+
 
 You can then execute your native executable with: `./target/customer-api-1.0.0-SNAPSHOT-runner`
 
